@@ -2,44 +2,226 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>  FM Services | Facility Management Digital Hub</title>
+  <title>FM Services | Facility Management Digital Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    body { font-family: 'Roboto', Arial, sans-serif; margin: 0; background: #f7f9fb; }
-    header { background: #07497a; color: #fff; padding: 30px 0 20px; text-align: center; }
+    body { font-family: 'Roboto', Arial, sans-serif; margin: 0; background: #eef3f9; }
+    header { background: linear-gradient(90deg,#07497a 60%,#0097a7 100%); color: #fff; padding: 36px 0 24px; text-align: center; position: relative; }
+    header .logo {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+    header .logo i {
+      font-size: 44px;
+      color: #ffe082;
+      text-shadow: 0 2px 6px #3332;
+    }
+    header p { font-size: 20px; margin-top: 8px; }
     nav { background: #fff; box-shadow: 0 2px 4px #e0e0e0; }
     nav ul { display: flex; justify-content: center; list-style: none; padding: 0; margin: 0; }
-    nav ul li { margin: 0 20px; }
-    nav ul li a { color: #07497a; text-decoration: none; font-weight: 700; font-size: 18px; padding: 14px 0; display: block;}
+    nav ul li { margin: 0 22px; }
+    nav ul li a { color: #07497a; text-decoration: none; font-weight: 700; font-size: 18px; padding: 16px 0; display: block;}
     nav ul li a:hover { color: #0097a7; border-bottom: 2px solid #0097a7; }
-    .hero { padding: 60px 20px; text-align: center; background: linear-gradient(90deg, #0097a7 0%, #07497a 100%); color: #fff; }
-    .hero h1 { font-size: 48px; margin-bottom: 20px; }
-    .hero p { font-size: 22px; max-width: 600px; margin: 0 auto 30px; }
-    .search-bar { margin: 30px auto 0; max-width: 420px; display: flex; }
-    .search-bar input { flex: 1; padding: 12px; border: none; border-radius: 4px 0 0 4px; font-size: 18px; }
-    .search-bar button { background: #07497a; color: #fff; border: none; padding: 0 24px; font-size: 18px; border-radius: 0 4px 4px 0; cursor: pointer; }
-    .services-section { margin: 40px auto; max-width: 1000px; padding: 0 20px; }
-    .services-section h2 { color: #07497a; margin-bottom: 20px; text-align: center; }
-    .services-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-    .service-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #e0e0e0; padding: 32px 24px; width: 280px; text-align: center; transition: transform 0.2s; }
-    .service-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 4px 16px #b0bec5; }
-    .service-card h3 { color: #0097a7; margin-bottom: 12px; }
-    .service-card p { color: #333; font-size: 16px; }
-    .cta-btn { display: inline-block; margin-top: 32px; background: #0097a7; color: #fff; font-size: 20px; padding: 14px 36px; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; text-decoration: none;}
-    .cta-btn:hover { background: #07497a; }
-    .concept { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #e0e0e0; padding: 32px 40px; }
-    .concept h2 { color: #07497a; margin-top: 0; }
-    .concept ul { font-size: 18px; color: #333; margin-left: 20px; }
-    .flow { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #e0e0e0; padding: 32px 40px; }
-    .flow h2 { color: #07497a; margin-top: 0; }
-    .flow ol { font-size: 18px; color: #333; margin-left: 20px; }
-    footer { background: #07497a; color: #fff; text-align: center; padding: 20px; margin-top: 60px; }
+    .hero {
+      padding: 70px 20px 40px;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(7,73,122,0.55);
+      z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 { font-size: 54px; margin-bottom: 18px; font-weight: 700; text-shadow: 0 2px 16px #2225; letter-spacing: 1px;}
+    .hero p { font-size: 24px; max-width: 600px; margin: 0 auto 32px; text-shadow: 0 1px 8px #2223;}
+    .search-bar {
+      margin: 0 auto 22px;
+      max-width: 420px;
+      display: flex;
+      box-shadow: 0 2px 16px #07497a44;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      font-size: 18px;
+      outline: none;
+      background: #f4f8fc;
+    }
+    .search-bar button {
+      background: #0097a7;
+      color: #fff;
+      border: none;
+      padding: 0 28px;
+      font-size: 19px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-weight: 700;
+    }
+    .search-bar button:hover { background: #07497a; }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: linear-gradient(90deg,#0097a7,#07497a);
+      color: #fff;
+      font-size: 21px;
+      padding: 14px 38px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 2px 8px #07497a44;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-btn:hover { background: linear-gradient(90deg,#07497a,#0097a7); transform: scale(1.03);}
+    .services-section { margin: 50px auto 0; max-width: 1100px; padding: 0 18px; }
+    .services-section h2 {
+      color: #07497a;
+      margin-bottom: 26px;
+      text-align: center;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 34px;
+    }
+    .service-card {
+      background: linear-gradient(120deg,#eaf6ff 60%,#fff 100%);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #07497a22;
+      padding: 36px 26px 28px;
+      width: 260px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      cursor: pointer;
+    }
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.06);
+      box-shadow: 0 4px 24px #0097a744;
+      border: 2px solid #0097a7;
+    }
+    .service-card i {
+      font-size: 38px;
+      color: #07497a;
+      background: #ffe082;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 2px 8px #07497a33;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      color: #0097a7;
+      margin-bottom: 12px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .service-card p {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .concept, .flow {
+      max-width: 950px;
+      margin: 48px auto;
+      background: #fff;
+      border-radius: 11px;
+      box-shadow: 0 2px 8px #d7eafc;
+      padding: 32px 42px;
+      position: relative;
+    }
+    .concept h2, .flow h2 {
+      color: #07497a;
+      margin-top: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .concept ul, .flow ol {
+      font-size: 19px;
+      color: #333;
+      margin-left: 20px;
+      line-height: 1.7;
+    }
+    .flow ol { margin-top: 16px;}
+    .flow ol li { margin-bottom: 6px; }
+    .steps-visual {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 20px 0 10px 0;
+    }
+    .step-badge {
+      background: #0097a7;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 24px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px #07497a22;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-width: 60px;
+      min-height: 60px;
+    }
+    .step-badge i { font-size: 24px; margin-bottom: 4px; }
+    .step-label { font-size: 15px; color: #07497a; margin-top: 6px; }
+    footer {
+      background: linear-gradient(90deg,#07497a 60%,#0097a7 100%);
+      color: #fff;
+      text-align: center;
+      padding: 28px;
+      margin-top: 60px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .services-list { gap: 20px; }
+      .service-card { width: 220px; padding: 26px 12px; }
+      .concept, .flow { padding: 18px 8px; }
+    }
+    @media (max-width: 600px) {
+      .services-list { flex-direction: column; align-items: center; }
+      .service-card { width: 95%; }
+      .hero h1 { font-size: 33px;}
+      .hero p { font-size: 17px;}
+      .concept, .flow { padding: 12px 4px;}
+      header .logo { font-size: 26px;}
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>fmservices.online</h1>
+    <div class="logo">
+      <i class="fas fa-building-user"></i>
+      fmservices.online
+    </div>
     <p>Digital Hub for Facility Management & Procurement Teams</p>
   </header>
   <nav>
@@ -51,30 +233,36 @@
     </ul>
   </nav>
   <div class="hero">
-    <h1>Source Certified FM & Inspection Services</h1>
-    <p>Search, select, and request proposals for compliance, inspection, testing, and training — all in one convenient platform.</p>
-    <form class="search-bar" action="rfq.html" method="get">
-      <input type="text" placeholder="Search for services (e.g., Elevator, Water Testing)">
-      <button type="submit">Search</button>
-    </form>
-    <a class="cta-btn" href="rfq.html">Request a Proposal</a>
+    <div class="hero-content">
+      <h1>Source Certified FM & Inspection Services</h1>
+      <p>Search, select, and request proposals for compliance, inspection, testing, and training — all in one convenient platform.</p>
+      <form class="search-bar" action="rfq.html" method="get">
+        <input type="text" placeholder="Search for services (e.g., Elevator, Water Testing)">
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
+      </form>
+      <a class="cta-btn" href="rfq.html"><i class="fas fa-file-signature"></i> Request a Proposal</a>
+    </div>
   </div>
   <section class="services-section">
     <h2>Service Categories</h2>
     <div class="services-list">
-      <div class="service-card">
+      <div class="service-card" title="Inspection Services">
+        <i class="fas fa-clipboard-check"></i>
         <h3>Inspection</h3>
         <p>Elevator, Fire Safety, Electrical, Water Quality</p>
       </div>
-      <div class="service-card">
+      <div class="service-card" title="Testing Services">
+        <i class="fas fa-vial"></i>
         <h3>Testing</h3>
         <p>HVAC, Water, Electrical, Compliance</p>
       </div>
-      <div class="service-card">
+      <div class="service-card" title="Training Services">
+        <i class="fas fa-chalkboard-teacher"></i>
         <h3>Training</h3>
         <p>Safety, Equipment Handling, Compliance Programs</p>
       </div>
-      <div class="service-card">
+      <div class="service-card" title="Compliance Management">
+        <i class="fas fa-calendar-check"></i>
         <h3>Compliance</h3>
         <p>Scheduled 3M, 6M, 12M services, audit management</p>
       </div>
@@ -91,6 +279,40 @@
   </section>
   <section class="flow">
     <h2>User Experience Flow</h2>
+    <div class="steps-visual">
+      <div>
+        <div class="step-badge"><i class="fas fa-home"></i></div>
+        <div class="step-label">Homepage</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-search"></i></div>
+        <div class="step-label">Search & Select</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-file-alt"></i></div>
+        <div class="step-label">RFQ Form</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-envelope"></i></div>
+        <div class="step-label">Confirmation</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-users-cog"></i></div>
+        <div class="step-label">Admin Review</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-file-contract"></i></div>
+        <div class="step-label">Proposal</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-tools"></i></div>
+        <div class="step-label">Service Execution</div>
+      </div>
+      <div>
+        <div class="step-badge"><i class="fas fa-credit-card"></i></div>
+        <div class="step-label">Payment</div>
+      </div>
+    </div>
     <ol>
       <li>Homepage with Search Bar and service categories</li>
       <li>Service selection: pick one or multiple services</li>
